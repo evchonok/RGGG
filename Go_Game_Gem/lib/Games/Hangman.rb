@@ -2,11 +2,58 @@
 
 require_relative '../Go_Game_Gem/version'
 
-# lib/Games/hangman.rb
 module GoGameGem
   class Hangman
     def initialize
       puts "Игра виселица запущена!"
+      start_game
+    end
+
+    private
+
+    def start_game
+      words = ["ruby", "programming"]
+      word = words.sample
+      guessed_letters = []
+      attempts_left = 6
+      display_word = Array.new(word.length, "_")
+
+      until attempts_left.zero? || !display_word.include?("_")
+        puts "\nТекущее слово: #{display_word.join(' ')}"
+        puts "Осталось попыток: #{attempts_left}"
+        print "Введите букву: "
+        input = gets.chomp.downcase
+
+        if input.length != 1 || !input.match?(/\A[a-z]\z/)
+          puts "Пожалуйста, введите одну букву."
+          next
+        end
+
+        if guessed_letters.include?(input)
+          puts "Эта буква уже была угадана."
+          next
+        end
+
+        guessed_letters << input
+
+        if word.include?(input)
+          puts "Верно!"
+          word.chars.each_with_index do |char, index|
+            if char == input
+              display_word[index] = input
+            end
+          end
+        else
+          puts "Неверно!"
+          attempts_left -= 1
+        end
+      end
+
+      if !display_word.include?("_")
+        puts "Поздравляем! Вы выиграли! Загаданное слово: #{word}"
+      else
+        puts "Игра окончена. Загаданное слово было: #{word}"
+      end
     end
   end
 end
