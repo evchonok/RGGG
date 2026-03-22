@@ -5,7 +5,4 @@ require_relative "Go_Game_Gem/version"
 module GoGameGem
   class Error < StandardError; end
   # Your code goes here...
-   def self.eng
-    'Hello'
-  end
 end
