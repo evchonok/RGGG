@@ -4,6 +4,72 @@ require_relative '../Go_Game_Gem/version'
 
 module GoGameGem
   class Hangman
+    HANGMAN_STAGES = [
+      "
+       _______
+      |/      |
+      |
+      |
+      |
+      |
+      |___
+      ",
+      "
+       _______
+      |/      |
+      |      (_)
+      |
+      |
+      |
+      |___
+      ",
+      "
+       _______
+      |/      |
+      |      (_)
+      |       |
+      |       |
+      |
+      |___
+      ",
+      "
+       _______
+      |/      |
+      |      (_)
+      |      \\|
+      |       |
+      |
+      |___
+      ",
+      "
+       _______
+      |/      |
+      |      (_)
+      |      \\|/
+      |       |
+      |
+      |___
+      ",
+      "
+       _______
+      |/      |
+      |      (_)
+      |      \\|/
+      |       |
+      |      / 
+      |___
+      ",
+      "
+       _______
+      |/      |
+      |      (_)
+      |      \\|/
+      |       |
+      |      / \\
+      |___
+      "
+    ]
+
     def initialize
       puts "Игра виселица запущена!"
       start_game
@@ -18,9 +84,14 @@ module GoGameGem
       attempts_left = 6
       display_word = Array.new(word.length, "_")
 
+      def draw_hangman(stage)
+        puts HANGMAN_STAGES[stage]
+      end
+
       until attempts_left.zero? || !display_word.include?("_")
         puts "\nТекущее слово: #{display_word.join(' ')}"
         puts "Осталось попыток: #{attempts_left}"
+        draw_hangman(6 - attempts_left)
         print "Введите букву: "
         input = gets.chomp.downcase
 
@@ -48,6 +119,8 @@ module GoGameGem
           attempts_left -= 1
         end
       end
+
+      draw_hangman(6 - attempts_left)
 
       if !display_word.include?("_")
         puts "Поздравляем! Вы выиграли! Загаданное слово: #{word}"
