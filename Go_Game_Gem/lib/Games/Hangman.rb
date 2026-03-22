@@ -78,7 +78,8 @@ module GoGameGem
     private
 
     def start_game
-      words = ["ruby", "programming"]
+      file_path = File.join(__dir__, 'words.txt')
+      words = File.readlines(file_path, chomp: true)
       word = words.sample
       guessed_letters = []
       attempts_left = 6
