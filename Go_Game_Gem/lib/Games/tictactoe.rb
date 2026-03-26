@@ -6,6 +6,8 @@ module GoGameGem
   class TicTacToe
     def initialize
       puts "Игра крестики-нолики запущена!"
+    end
+    def play
       start_game
     end
 

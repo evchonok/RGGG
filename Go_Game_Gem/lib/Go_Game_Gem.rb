@@ -30,7 +30,3 @@ module GoGameGem
     end
 
 end
-
-if __FILE__ == $PROGRAM_NAME
-  GoGameGem.start
-end
