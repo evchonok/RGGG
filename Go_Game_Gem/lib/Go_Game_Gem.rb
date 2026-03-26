@@ -2,6 +2,7 @@
 
 require_relative "Go_Game_Gem/version"
 require_relative "Games/hangman"
+require_relative "Games/tictactoe"
 
 module GoGameGem
   class Error < StandardError; end
@@ -9,7 +10,7 @@ module GoGameGem
       puts "Добро пожаловать в мини-игры!"
       puts "Выберите игру:"
       puts "1. Виселица"
-      puts "2. Игра 2 (её нужно добавить)"
+      puts "2. Крестики_нолики"
       puts "3. Игра 3 (её нужно добавить)"
       print "Введите номер игры: "
 
@@ -19,8 +20,7 @@ module GoGameGem
       when 1
         Hangman.new
       when 2
-        # Тут вызов другого класса игры
-        puts "Игра 2 пока не реализована."
+        TicTacToe.new
       when 3
         # Тут вызов другого класса игры
         puts "Игра 3 пока не реализована."
@@ -29,4 +29,8 @@ module GoGameGem
       end
     end
 
+end
+
+if __FILE__ == $PROGRAM_NAME
+  GoGameGem.start
 end
