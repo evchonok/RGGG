@@ -5,6 +5,10 @@ require_relative '../Go_Game_Gem/version'
 module GoGameGem
   class TicTacToe
     def initialize
+      
+    end
+    
+    def start
       puts "Игра крестики-нолики запущена!"
       start_game
     end

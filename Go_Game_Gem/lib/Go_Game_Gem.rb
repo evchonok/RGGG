@@ -20,7 +20,7 @@ module GoGameGem
       when 1
         Hangman.new
       when 2
-        TicTacToe.new
+        TicTacToe.new.start
       when 3
         # Тут вызов другого класса игры
         puts "Игра 3 пока не реализована."
