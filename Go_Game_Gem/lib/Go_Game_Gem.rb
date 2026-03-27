@@ -3,6 +3,7 @@
 require_relative "Go_Game_Gem/version"
 require_relative "Games/hangman"
 require_relative "Games/tictactoe"
+require_relative "Games/Sudoka"
 
 module GoGameGem
   class Error < StandardError; end
@@ -11,7 +12,7 @@ module GoGameGem
       puts "Выберите игру:"
       puts "1. Виселица"
       puts "2. Крестики_нолики"
-      puts "3. Игра 3 (её нужно добавить)"
+      puts "3. Судоку"
       print "Введите номер игры: "
 
       choice = gets.chomp.to_i
@@ -22,8 +23,7 @@ module GoGameGem
       when 2
         TicTacToe.new.start
       when 3
-        # Тут вызов другого класса игры
-        puts "Игра 3 пока не реализована."
+        Sudoka.new
       else
         puts "Некорректный выбор."
       end
