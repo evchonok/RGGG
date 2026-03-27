@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["tiverkaevaeva2005@mail.ru", "vlasova.emma0004@mail.ru", "tuhteeeva59@gmail.com" ]
 
   spec.summary = "Мини-игры для отдыха от го: виселица, крестики-нолики, судоку"
-spec.description = "Коллекция мини-игр (виселица, крестики-нолики, судоку), разработанная как дополнение к библиотеке для игры в го. Позволяет отвлечься и переключить внимание между партиями или задачами"
+  spec.description = "Коллекция мини-игр (виселица, крестики-нолики, судоку), разработанная как дополнение к библиотеке для игры в го. Позволяет отвлечься и переключить внимание между партиями или задачами"
   spec.homepage = "https://github.com/evchonok/Ruby_Go_Game_Gem.git"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.2.0"
