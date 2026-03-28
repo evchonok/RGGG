@@ -70,8 +70,9 @@ module GoGameGem
       "
     ]
 
-    def initialize
+    def initialize(test_word = nil)
       puts "Игра виселица запущена!"
+      @test_word = test_word
       start_game
     end
 
@@ -79,15 +80,10 @@ module GoGameGem
 
     def start_game
       file_path = File.join(__dir__, 'words.txt')
-      words = File.readlines(file_path, chomp: true)
-      word = words.sample
+      word = @test_word || File.readlines(file_path, chomp: true).sample
       guessed_letters = []
       attempts_left = 6
       display_word = Array.new(word.length, "_")
-
-      def draw_hangman(stage)
-        puts HANGMAN_STAGES[stage]
-      end
 
       until attempts_left.zero? || !display_word.include?("_")
         puts "\nТекущее слово: #{display_word.join(' ')}"
@@ -128,6 +124,10 @@ module GoGameGem
       else
         puts "Игра окончена. Загаданное слово было: #{word}"
       end
+    end
+
+    def draw_hangman(stage)
+      puts HANGMAN_STAGES[stage]
     end
   end
 end
