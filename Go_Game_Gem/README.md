@@ -1,43 +1,64 @@
 # GoGameGem
 
-TODO: Delete this and the text below, and describe your gem
+Коллекция классических игр на Ruby: Крестики-нолики, Виселица и Судоку.
+Ruby код находится в файле `lib/Go_Game_Gem`. Для интерактивной работы выполните 
+`bin/console`.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/Go_Game_Gem`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Установка
 
-## Installation
+Установите гем и добавьте в Gemfile вашего приложения:
+`bash`
+`bundle add go_game_gem`
 
-TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
+Если вы не используете Bundler, установите гем напрямую:
 
-Install the gem and add to the application's Gemfile by executing:
+`gem install go_game_gem`.
 
-```bash
-bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
-```
+## Использование
+Войдите в интерпертатор Ruby:
+`irb`
 
-If bundler is not being used to manage dependencies, install the gem by executing:
+Запустите главное меню игр:
 
-```bash
-gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
-```
+`require_relative 'go_game_gem'`
+`GoGameGem.start`
 
-## Usage
+Доступные игры
+1. Крестики-нолики (TicTacToe)
 
-TODO: Write usage instructions here
+Классическая игра для двух игроков на поле 3x3. Игроки поочередно вводят координаты строки и столбца (0-2). Программа автоматически определяет победителя или ничью.
 
-## Development
+`GoGameGem::TicTacToe.new.start`
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+2. Виселица (Hangman)
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Игра на угадывание слов. Программа случайным образом выбирает слово из словаря, а игрок должен угадать его по буквам. Количество попыток ограничено, а неправильные ответы визуально отображаются на виселице.
 
-## Contributing
+`GoGameGem::Hangman.new`
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/Go_Game_Gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/Go_Game_Gem/blob/master/CODE_OF_CONDUCT.md).
+3. Судоку (Sudoku)
 
-## License
+Японская головоломка с числами. Игрок должен заполнить поле 9x9 цифрами от 1 до 9 так, чтобы в каждой строке, столбце и квадрате 3x3 все цифры были уникальны. Программа генерирует случайные головоломки и подсчитывает количество ходов.
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+`GoGameGem::Sudoka.new.play`
 
-## Code of Conduct
+Пример:
 
-Everyone interacting in the GoGameGem project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/Go_Game_Gem/blob/master/CODE_OF_CONDUCT.md).
+Добро пожаловать в мини-игры!
+Выберите игру:
+1. Виселица
+2. Крестики_нолики
+3. Судоку
+Введите номер игры: 2
+Игра крестики-нолики запущена!
+
+    0   1   2
+   ┌───┬───┬───┐
+ 0 │   │   │   │
+   ├───┼───┼───┤
+ 1 │   │   │   │
+   ├───┼───┼───┤
+ 2 │   │   │   │
+   └───┴───┴───┘
+
+Игрок X, ваш ход:
